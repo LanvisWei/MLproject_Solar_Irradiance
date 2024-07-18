@@ -1,0 +1,7 @@
+dash
+dcc
+pandas
+Pillow
+numpy
+scipy
+calculator
