@@ -1,5 +1,6 @@
 import time
 import pandas as pd
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -8,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 
 # 初始化啟動chrome webdriver
-driverpath = r"D:\github\MLproject_Solar_Irradiance\chromedriver-win64\chromedriver.exe"  # 瀏覽器驅動程式路徑
+driverpath = os.path.join('chromedriver.exe')
 service = Service(driverpath)
 
 # 設置Chrome選項以啟用無頭模式

@@ -4,15 +4,8 @@ import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
 import os
 
-# 檢查並設置當前工作目錄
-current_dir = os.getcwd()
-print("Current Working Directory:", current_dir)
-if os.path.basename(current_dir) != 'MLproject_Solar_Irradiance':
-    os.chdir('..')
-print("Updated Working Directory:", os.getcwd())
-
 # 加載 CSV 文件
-file_path = os.path.join('temp_solar', 'processed_data_v2.csv')
+file_path = os.path.join('processed_data_v2.csv')
 data = pd.read_csv(file_path)
 
 # Convert all relevant columns to float
@@ -43,7 +36,7 @@ plt.xticks(fontproperties=font_properties)
 plt.yticks(fontproperties=font_properties)
 
 # save png
-output_path = os.path.join('temp_solar', 'heatmap.png')
+output_path = os.path.join('heatmap.png')
 plt.savefig(output_path, bbox_inches='tight')
 
 plt.show()

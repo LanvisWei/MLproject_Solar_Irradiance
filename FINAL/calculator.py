@@ -3,13 +3,8 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import os
 
-# 檢查並設置當前工作目錄
-current_dir = os.getcwd()
-if os.path.basename(current_dir) != 'MLproject_Solar_Irradiance':
-    os.chdir('..')
-
 # 讀取CSV資料
-file_path = os.path.join('temp_solar', 'annual_averages.csv')
+file_path = os.path.join('annual_averages.csv')
 annual_averages_df = pd.read_csv(file_path)
 
 # 定義太陽能系統相關常數
@@ -100,9 +95,3 @@ def create_ui(window):
 
     ttk.Button(window, text="提交", command=lambda: on_submit(region_var, floor_area_var, result_var)).grid(column=0, row=2, columnspan=2, padx=10, pady=10)
 
-# # 測試函數
-# if __name__ == '__main__':
-#     root = tk.Tk()
-#     root.title("太陽能系統安裝建議")
-#     create_ui(root)
-#     root.mainloop()

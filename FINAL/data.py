@@ -4,15 +4,10 @@ import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
 import os
 
-# 檢查當前工作目錄
-current_dir = os.getcwd()
-print("Current Working Directory:", current_dir)
-
-# 設定檔案路徑
-file_path = os.path.join('..', 'temp_solar', 'processed_data_v2.csv')
+file_path = os.path.join('processed_data_v2.csv')
 
 # 字體設置
-font_path = os.path.join('..', 'ChocolateClassicalSans-Regular.ttf')
+font_path = os.path.join('ChocolateClassicalSans-Regular.ttf')
 font_properties = FontProperties(fname=font_path)
 
 df = pd.read_csv(file_path)
@@ -64,7 +59,7 @@ plt.title('統計摘要', fontsize=16, fontproperties=font_properties)
 for key, cell in table.get_celld().items():
     cell.set_text_props(fontproperties=font_properties)
 
-output_path = os.path.join('..', 'temp_solar', 'data.png')
+output_path = os.path.join('data.png')
 plt.savefig(output_path, bbox_inches='tight')
 
 # 顯示統計數據圖表
