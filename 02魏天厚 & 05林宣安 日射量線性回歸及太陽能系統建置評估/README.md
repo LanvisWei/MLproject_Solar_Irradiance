@@ -61,3 +61,5 @@ https://github.com/LanvisWei/MLproject_Solar_Irradiance
 3. 讓你知道台灣的家用太陽能系統其實跟你有多少地有關係
 4. 然後你會知道有多少地跟你有多少錢有關係
 5. 讓你知道綠能很美好，但建構起來完全不符合效率也不符合CP值，太陽能中，太陽能板的成本其實並不是其中最大的比重。
+
+### [影片](https://youtu.be/BFty69tjR2s)
