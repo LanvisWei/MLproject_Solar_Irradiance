@@ -34,18 +34,18 @@ https://github.com/LanvisWei/MLproject_Solar_Irradiance
 
 ### 資料來源
 
-> 交通部中央氣象署 首頁>生活>農業>農業觀測>全部觀測網月資料
-* [日射量資料](https://www.cwa.gov.tw/V8/C/L/Agri/Agri_month_All.html)
-* 使用selenium獲取資料並輸出.csv
+- 交通部中央氣象署 首頁>生活>農業>農業觀測>全部觀測網月資料
+    * [日射量資料](https://www.cwa.gov.tw/V8/C/L/Agri/Agri_month_All.html)
+    * 使用selenium獲取資料並輸出.csv
 
 ### 重要計算式
 
-> MJ/m² 轉換為kW/m² 的公式：1 MJ/m² = 0.2778 kW/m²
+- MJ/m² 轉換為kW/m² 的公式：1 MJ/m² = 0.2778 kW/m²
 
-> P=Sxη×ESH/E
-- S 是系統容量(KW)
-- E 是每日能量需求（kWh/day）
-- η 是系統效率
+- P=Sxη×ESH/E
+    * S 是系統容量(KW)
+    * E 是每日能量需求（kWh/day）
+    * η 是系統效率
 
 ### 結論
 
