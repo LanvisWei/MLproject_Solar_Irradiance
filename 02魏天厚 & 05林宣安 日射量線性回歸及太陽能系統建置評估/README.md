@@ -24,11 +24,11 @@ https://github.com/LanvisWei/MLproject_Solar_Irradiance
 > ESH = DailySolarIrradiation (kWh/m²/day) / (1kW/m²)**
 > * 如果某地一天接收到 6 kWh/m² 的太陽能量，則該地的 ESH 為 6 小時，意味著該地接收到相當於 6 小時的 1000 W/m² 的陽光。
 
-* Daily Energy Production=Power Rating of Panel×ESH
+> * Daily Energy Production=Power Rating of Panel×ESH
 
     - 每日能量產出=太陽能板功率×ESH
 
-* example : If you have a 200-watt solar panel and the ESH in your location is 5 hours. Daily Energy Production=200 W×5 hours=1,000 Wh or 1 kWh.
+> * example : If you have a 200-watt solar panel and the ESH in your location is 5 hours. Daily Energy Production=200 W×5 hours=1,000 Wh or 1 kWh.
 
     - 如果你有一塊 200 瓦的太陽能板，而你所在位置的 ESH 為 5 小時，每日能量產出=200 W×5 小時=1000 Wh 或 1 kWh
 
