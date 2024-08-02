@@ -72,8 +72,7 @@ def suggest_installation(floor_area_tsubo, esh, roof_mount=True):
     suggestion = "建議安裝" if daily_energy > DAILY_ENERGY_THRESHOLD else "不建議安裝"
     return suggestion, daily_energy, installation_cost
 
-app3 = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-
+# 設定佈局
 app3.layout = dbc.Container([
     dbc.Row([
         dbc.Col([
@@ -105,6 +104,7 @@ app3.layout = dbc.Container([
     ])
 ], fluid=True)
 
+# 設定回調函數
 @app3.callback(
     Output('result-output', 'children'),
     Input('submit-button', 'n_clicks'),
