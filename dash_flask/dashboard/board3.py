@@ -146,7 +146,7 @@ def update_output(n_clicks, region, floor_area_tsubo, roof_mount):
             return "輸入錯誤: 請輸入有效的樓地板面積"
     return ""
 
-@app.callback(
+@app3.callback(
     Output('home-button', 'n_clicks'),
     Input('home-button', 'n_clicks')
 )
