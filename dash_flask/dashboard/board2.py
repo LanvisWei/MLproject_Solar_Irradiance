@@ -4,6 +4,10 @@ import traceback
 from dash import html
 import base64
 
+# 檢查並設置當前工作目錄
+current_dir = os.getcwd()
+target_dir = os.path.join(current_dir, 'dash_flask')
+
 # 創建 Dash 應用
 app2 = dash.Dash(__name__, requests_pathname_prefix='/dashboard/app2/')
 app2.title = '太陽能系統評估'
@@ -11,22 +15,40 @@ app2.title = '太陽能系統評估'
 # 顯示選定圖像的函數
 def display_image(image_path, width='80%', height='auto'):
     try:
-        encoded_image = base64.b64encode(open(image_path, 'rb').read()).decode('utf-8')
-        return html.Img(src=f'data:image/png;base64,{encoded_image}', style={'width': width, 'height': height})
+        # 打印圖像路徑來檢查是否正確
+        print(f"嘗試顯示圖像: {image_path}")
+        
+        # 確保檔案存在
+        if not os.path.isfile(image_path):
+            raise FileNotFoundError(f"檔案不存在: {image_path}")
+
+        with open(image_path, 'rb') as image_file:
+            encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
+            return html.Img(src=f'data:image/png;base64,{encoded_image}', style={'width': width, 'height': height})
     except Exception as e:
+        # 打印錯誤信息到控制台
+        print(f"無法顯示圖片: {str(e)}")
         return html.Div(f"無法顯示圖片: {str(e)}")
 
-# 假設 button_texts 是一個列表，包含按鈕的文本和圖像路徑
+# 確保所有圖片檔案存在
+def check_image_files(button_texts):
+    for _, path in button_texts:
+        if not os.path.isfile(path):
+            print(f"檔案不存在: {path}")
+
 button_texts = [
-    ("統計摘要", os.path.join('data.png')),
-    ("盒鬚圖", os.path.join('boxplot_no_outliers.png')),
-    ("每日平均日照時數", os.path.join('line_H.png')),
-    ("平均日照時數常態分佈", os.path.join('normaldistribution_H.png')),
-    ("每日平均太陽輻射量", os.path.join('line_R.png')),
-    ("平均日射量常態分佈", os.path.join('normaldistribution_R.png')),
-    ("熱力圖", os.path.join('heatmap.png')),
-    ("線性回歸", os.path.join('linear_regression.png')),
+    ("統計摘要", os.path.join('image','data.png')),
+    ("盒鬚圖", os.path.join('image','boxplot_no_outliers.png')),
+    ("每日平均日照時數", os.path.join('image','line_H.png')),
+    ("平均日照時數常態分佈", os.path.join('image','normaldistribution_H.png')),
+    ("每日平均太陽輻射量", os.path.join('image','line_R.png')),
+    ("平均日射量常態分佈", os.path.join('image','normaldistribution_R.png')),
+    ("熱力圖", os.path.join('image','heatmap.png')),
+    ("線性回歸", os.path.join('image','linear_regression.png')),
 ]
+
+# 檢查圖片檔案是否存在
+check_image_files(button_texts)
 
 # 創建主要的 layout
 app2.layout = html.Div([
@@ -74,4 +96,4 @@ def update_image(*args):
         return html.Div(f"圖片顯示出現錯誤: {str(e)}")
 
 if __name__ == '__main__':
-    app2.run_server(host='127.0.0.1', port=8056, debug=False)
+    app2.run_server(host='127.0.0.1', port=8056, debug=True)
