@@ -4,3 +4,6 @@ flask
 gunicorn
 dash
 pandas
+sqlalchemy
+themes
+dash_bootstrap_components
